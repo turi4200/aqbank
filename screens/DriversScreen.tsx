@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { View, ScrollView, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import CountryFlag from 'react-native-country-flag';
 import axios from 'axios';
@@ -22,7 +23,18 @@ interface Driver {
     nationality: string;
 }
 
-const DriversScreen: React.FC = ({ navigation }) => {
+type RootStackParamList = {
+    Home: undefined;
+    Drivers: undefined;
+};
+
+type DriversScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Drivers'>;
+
+type Props = {
+    navigation: DriversScreenNavigationProp;
+};
+
+const DriversScreen: React.FC<Props> = ({ navigation }) => {
     const [drivers, setDrivers] = useState<Driver[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);

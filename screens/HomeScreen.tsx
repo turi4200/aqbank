@@ -1,4 +1,5 @@
 import React from 'react';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import carImage from '../assets/images/car.png';
 import trackImage from '../assets/images/track.png';
@@ -11,7 +12,18 @@ import LeadIcon from '../assets/icons/lead.svg';
 import DateIcon from '../assets/icons/date.svg';
 import ChampIcon from '../assets/icons/champ.svg';
 
-const HomeScreen: React.FC = ({ navigation }) => {
+type RootStackParamList = {
+    Home: undefined;
+    Drivers: undefined;
+};
+
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+type Props = {
+    navigation: HomeScreenNavigationProp;
+};
+
+const HomeScreen: React.FC<Props> = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.topBackground} />
