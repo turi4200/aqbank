@@ -43,7 +43,7 @@ const HomeScreen: React.FC = ({ navigation }) => {
                         </View>
                         <View style={styles.actionButtons}>
                             <Badge
-                                text="Próximas dias"
+                                text="Próximos dias"
                                 backgroundColor={theme.Colors.neutro[950]}
                                 textColor={theme.Colors.base.white}
                                 IconComponent={DateIcon}
