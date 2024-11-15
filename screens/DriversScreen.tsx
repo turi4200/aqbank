@@ -73,7 +73,7 @@ const DriversScreen: React.FC = ({ navigation }) => {
                         day: '2-digit',
                         month: 'long',
                         year: 'numeric'
-                    })}</Text>
+                    }).replace(/de\s([a-z])/g, (match, p1) => `de ${p1.toUpperCase()}`)}</Text>
                 </View>
             </View>
         );
