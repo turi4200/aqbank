@@ -35,7 +35,7 @@ const DriversScreen: React.FC = ({ navigation }) => {
 
                 const filteredDrivers = fetchedDrivers.filter((driver: Driver) =>
                     new Date(driver.dateOfBirth) >= new Date('1960-01-01')
-                );
+                ).sort((a: Driver, b: Driver) => new Date(a.dateOfBirth).getTime() - new Date(b.dateOfBirth).getTime());
 
                 setDrivers(filteredDrivers);
             } catch (err) {
