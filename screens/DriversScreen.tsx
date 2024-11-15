@@ -69,7 +69,11 @@ const DriversScreen: React.FC = ({ navigation }) => {
                 <CountryFlag isoCode={isoCode} size={28} style={styles.flag} />
                 <View style={styles.driverInfo}>
                     <Text style={styles.driverName}>{item.givenName}</Text>
-                    <Text style={styles.driverDetails}>Nascido em {new Date(item.dateOfBirth).toLocaleDateString()}</Text>
+                    <Text style={styles.driverDetails}>Nascido em {new Date(item.dateOfBirth).toLocaleDateString('pt-BR', {
+                        day: '2-digit',
+                        month: 'long',
+                        year: 'numeric'
+                    })}</Text>
                 </View>
             </View>
         );
